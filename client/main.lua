@@ -878,26 +878,26 @@ CreateThread(function()
     end
 end)
 
-CreateThread(function()
-    while true do
-        local sleep = 1000
-        if LocalPlayer.state['isLoggedIn'] then
-            local pos = GetEntityCoords(PlayerPedId())
-            local distance = #(pos - Config.AttachmentCraftingLocation)
-            if distance < 10 then
-                if distance < 1.5 then
-                    sleep = 0
-                    DrawText3Ds(Config.AttachmentCraftingLocation, "~g~E~w~ - Craft")
-                    if IsControlJustPressed(0, 38) then
-                        local crafting = {}
-                        crafting.label = "Attachment Crafting"
-                        crafting.items = GetAttachmentThresholdItems()
-                        TriggerServerEvent("inventory:server:OpenInventory", "attachment_crafting", math.random(1, 99), crafting)
-                        sleep = 100
-                    end
-                end
-            end
-        end
-        Wait(sleep)
-    end
-end)
+-- CreateThread(function()
+--     while true do
+--         local sleep = 1000
+--         if LocalPlayer.state['isLoggedIn'] then
+--             local pos = GetEntityCoords(PlayerPedId())
+--             local distance = #(pos - Config.AttachmentCraftingLocation)
+--             if distance < 10 then
+--                 if distance < 1.5 then
+--                     sleep = 0
+--                     DrawText3Ds(Config.AttachmentCraftingLocation, "~g~E~w~ - Craft")
+--                     if IsControlJustPressed(0, 38) then
+--                         local crafting = {}
+--                         crafting.label = "Attachment Crafting"
+--                         crafting.items = GetAttachmentThresholdItems()
+--                         TriggerServerEvent("inventory:server:OpenInventory", "attachment_crafting", math.random(1, 99), crafting)
+--                         sleep = 100
+--                     end
+--                 end
+--             end
+--         end
+--         Wait(sleep)
+--     end
+-- end)
